@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Students</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />
+</head>
+
+<body>
+    <div class="container">
+        <div class="row py-2 my-2">
+            <div class="col col-6">
+                <input type="text" class="form-control" id="search" name="search" placeholder="Search..." />
+            </div>
+            <div class="col col-2">
+                <select name="filter" id="filter" class="form-select btn btn-info">
+                    <option value="All">All</option>
+                    <option value="React">React</option>
+                    <option value="GO">GO</option>
+                    <option value="Node JS">Node JS</option>
+                </select>
+            </div>
+            <div class="col col-2">
+                <select name="filter-loc" id="filter-loc" class="form-select btn btn-secondary">
+                    <option value="All">Manzilni tanglang</option>
+                    <option value="Toshkent">Toshkent</option>
+                    <option value="Samarqand">Samarqand</option>
+                    <option value="Qo'qon">Qo'qon</option>
+                </select>
+            </div>
+            <div class="col col-2">
+                <button class="btn btn-outline-success" data-bs-toggle="modal" data-bs-target="#addModal">
+                    Add
+                </button>
+            </div>
+        </div>
+
+        <!-- ADD Modal -->
+        <div class="modal fade" id="addModal" tabindex="-1" aria-labelledby="addModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="addModalLabel">Add student</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="firstName" class="form-label">Firstname</label>
+                                <input type="text" id="firstName" name="firstName" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastName" class="form-label">Lastname</label>
+                                <input type="text" id="lastName" name="lastName" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="group" class="form-label">Position</label>
+                                <select name="group" id="group" class="form-select">
+                                    <option value="React">React</option>
+                                    <option value="GO">GO</option>
+                                    <option value="Node JS">Node JS</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Location" class="form-label">Location</label>
+                                <select name="Location" id="lolation" class="form-select">
+                                    <option value="Toshkent">Toshkent</option>
+                                    <option value="Samarqand">Samarqand</option>
+                                    <option value="Qo'qon">Qo'qon</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="Position" class="form-label">Position Type</label>
+                                <select name="Position" id="postype" class="form-select">
+                                    <option value="Junior">Junior</option>
+                                    <option value="Middle">Middle</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="doesWork" name="doesWork" />
+                                <label for="doesWork" class="form-check-label">Ismarried</label>
+                            </div>
+                            <div class="row">
+                                <div class="form-check col col-6">
+                                    <label for="date" class="form-check-label">BirthDate</label>
+                                    <input type="date" class="form-check-date " id="date" name="date" />
+                                </div>
+                                <div class="form-check col col-6">
+                                    <label for="salary" class="form-check-label col ">Salary</label>
+                                    <input type="number" class="form-check-number col " id="salary" name="salary" />
+                                </div>
+
+                            </div>
+                            
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btn-add">
+                            Add
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- UPDATE Modal -->
+        <div class="modal fade" id="editModal" tabindex="-1" aria-labelledby="editModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="editModalLabel">Edit student</h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <form>
+                            <div class="mb-3">
+                                <label for="firstNameEdit" class="form-label">Firstname</label>
+                                <input type="text" id="firstNameEdit" name="firstNameEdit" class="form-control" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="lastNameEdit" class="form-label">Lastname</label>
+                                <input type="text" id="lastNameEdit" name="lastNameEdit" class="form-control" />
+                            </div>
+
+                            <div class="mb-3">
+                                <label for="LocationEdit" class="form-label">Location</label>
+                                <select name="LocationEdit" id="lolationEdit" class="form-select">
+                                    <option value="Toshkent">Toshkent</option>
+                                    <option value="Samarqand">Samarqand</option>
+                                    <option value="Qo'qon">Qo'qon</option>
+                                </select>
+                            </div>
+                            <div class="form-check col col-6">
+                                <label for="dateEdit" class="form-check-label">BirthDate</label>
+                                <input type="date" class="form-check-date " id="dateEdit" name="date" />
+                            </div>
+                            <div class="mb-3">
+                                <label for="PositionEdit" class="form-label">Position Type</label>
+                                <select name="Position" id="postypeEdit" class="form-select">
+                                    <option value="Junior">Junior</option>
+                                    <option value="Middle">Middle</option>
+                                    <option value="Senior">Senior</option>
+                                </select>
+                            </div>
+                            <div class="mb-3">
+                                <label for="groupEdit" class="form-label">Position</label>
+                                <select name="groupEdit" id="groupEdit" class="form-select">
+                                    <option value="React">React</option>
+                                    <option value="GO">GO</option>
+                                    <option value="Node JS">Node JS</option>
+                                </select>
+                            </div>
+                            <div class="form-check">
+                                <input type="checkbox" class="form-check-input" id="doesWorkEdit" name="doesWorkEdit" />
+                                <label for="doesWorkEdit" class="form-check-label">Does work?</label>
+                            </div>
+                            <div class="form-check">
+                                <label for="salaryEdit" class="form-check-label  ">Salary</label>
+                                <input type="number" class="form-check-number  " id="salaryEdit" name="salaryEdit" />
+                            </div>
+                        </form>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
+                            Cancel
+                        </button>
+                        <button type="button" class="btn btn-primary" data-bs-dismiss="modal" id="btn-update">
+                            Update
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <table class="table">
+            <thead>
+                <th>#</th>
+                <th>Firstname</th>
+                <th>Lastname</th>
+                <th>Location</th>
+                <th>Bithdate</th>
+                <!-- <th>Position</th> -->
+                <th>Position type</th>
+                <th>Salary</th>
+                <th>Position</th>
+                <th>Is married</th>
+                <th>Actions</th>
+            </thead>
+            <tbody id="student-list"></tbody>
+        </table>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="./js/main.js"></script>
+</body>
+
+</html>
